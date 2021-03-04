@@ -10,7 +10,7 @@ interface Idatabase{
     function AddItemToOrder($product, $quantity);
     function RemoveItemFromOrder($product,$quantity);
     function AddAddressToOrder();
-}
+    function GetProductCategories();
 }
 
 ?>
