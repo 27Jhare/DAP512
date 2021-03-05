@@ -1,5 +1,5 @@
 <?php
-namespace models;
+namespace tables;
 
 class product{
 
