@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" CONTENT="Sensors: Surface, Bayonet, Plastic, Tubular, Hand Held, Air.">
 
-    <title>Sensors | Testemp Ltd</title>
+    <title>Sensors | testco Ltd</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -17,11 +17,11 @@
 <body>
     <div class="container">
         <header>
-            <h1 id="logo"><a href="index.html">Testemp Ltd</a></h1>
+            <h1 id="logo"><a href="index.html">testco Ltd</a></h1>
             <div id="contact">
                 <p><a href="tel:+441903714140">Call: +44 (0) 1903 714140</a>
                     <br><a href="tel:+441903717435">Fax: +44 (0) 1903 717435</a>
-                    <br><a href="mailto:sales@testemp.co.uk?subject=Web enquiry">Email: sales@testemp.co.uk</a></p>
+                    <br><a href="mailto:sales@testco.co.uk?subject=Web enquiry">Email: sales@testco.co.uk</a></p>
             </div>
         </header>
 
@@ -82,10 +82,10 @@
         </section>
 
         <footer>
-            <a href="https://www.facebook.com/TestempTemperatureSensors/"><i class="fa fa-facebook-official"
+            <a href="https://www.facebook.com/testcoTemperatureSensors/"><i class="fa fa-facebook-official"
                     aria-hidden="true"></i></a>
             <a href="tel:+441903714140"><i class="fa fa-phone-square" aria-hidden="true"></i></a>
-            <a href="mailto:sales@testemp.co.uk?subject=Web enquiry"><i class="fa fa-paper-plane"
+            <a href="mailto:sales@testco.co.uk?subject=Web enquiry"><i class="fa fa-paper-plane"
                     aria-hidden="true"></i></a>
             <p>Registration Number: 866056 • VAT Registration Number: 193-2523-63<br>Student No: 19062354</p>
         </footer>

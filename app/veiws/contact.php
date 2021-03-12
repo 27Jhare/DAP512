@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description"
-        CONTENT="Tel: +44 (0) 1903 714140, Email: sales@testemp.co.uk, Rope Walk, Littlehampton, West Sussex, BN17 5DE. ">
+        CONTENT="Tel: +44 (0) 1903 714140, Email: sales@testco.co.uk, Rope Walk, Littlehampton, West Sussex, BN17 5DE. ">
 
-    <title>Contact | Testemp Ltd</title>
+    <title>Contact | testco Ltd</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,11 +15,11 @@
 <body>
     <div class="container">
         <header>
-            <h1 id="logo"><a href="index.html">Testemp Ltd</a></h1>
+            <h1 id="logo"><a href="index.html">testco Ltd</a></h1>
             <div id="contact">
                 <p><a href="tel:+441903714140">Call: +44 (0) 1903 714140</a>
                     <br><a href="tel:+441903717435">Fax: +44 (0) 1903 717435</a>
-                    <br><a href="mailto:sales@testemp.co.uk?subject=Web enquiry">Email: sales@testemp.co.uk</a></p>
+                    <br><a href="mailto:sales@testco.co.uk?subject=Web enquiry">Email: sales@testco.co.uk</a></p>
             </div>
         </header>
         <section class="flextainer">
@@ -98,7 +98,7 @@
                     <div id="map">
                         <h2>Find us</h2>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10084.670741730217!2d-0.5508095!3d50.8095318!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x890150fde0e3b603!2sTestemp%20Ltd!5e0!3m2!1sen!2suk!4v1594578043887!5m2!1sen!2suk"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10084.670741730217!2d-0.5508095!3d50.8095318!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x890150fde0e3b603!2stestco%20Ltd!5e0!3m2!1sen!2suk!4v1594578043887!5m2!1sen!2suk"
                             width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""
                             aria-hidden="false" tabindex="0" title="map"></iframe>
                     </div>
@@ -108,10 +108,10 @@
         </section>
 
         <footer>
-            <a href="https://www.facebook.com/TestempTemperatureSensors/"><i class="fa fa-facebook-official"
+            <a href="https://www.facebook.com/testcoTemperatureSensors/"><i class="fa fa-facebook-official"
                     aria-label="Facebook Page"></i></a>
             <a href="tel:+441903714140"><i class="fa fa-phone-square" aria-label="Phone Number"></i></a>
-            <a href="mailto:sales@testemp.co.uk?subject=Web enquiry"><i class="fa fa-paper-plane"
+            <a href="mailto:sales@testco.co.uk?subject=Web enquiry"><i class="fa fa-paper-plane"
                     aria-label="Email Address"></i></a>
             <p>Registration Number: 866056 • VAT Registration Number: 193-2523-63<br>Student No: 19062354</p>
         </footer>

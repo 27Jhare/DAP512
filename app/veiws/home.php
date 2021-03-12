@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" CONTENT="Suppliers of quality temperature sensors and instrumentation">
 
-    <title>Testemp Ltd | Temperature Sensors and Instrumentation</title>
+    <title>testco Ltd | Temperature Sensors and Instrumentation</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -14,20 +14,21 @@
 
 </head>
 <?php
-
-use  controllers;
+use  controllers as c;
+use index as i;
+$UserConroller = i\$container;
 
 ?>
 <body>
     <div class="container">
         <header>
 
-            <h1 id="logo"><a href="index.html">Testemp Ltd</a></h1>
+            <h1 id="logo"><a href="index.html">testco Ltd</a></h1>
 
             <div id="contact">
                 <p><a href="tel:+441903714140">Call: +44 (0) 1903 714140</a>
                     <br><a href="tel:+441903717435">Fax: +44 (0) 1903 717435</a>
-                    <br><a href="mailto:sales@testemp.co.uk?subject=Web enquiry">Email: sales@testemp.co.uk</a></p>
+                    <br><a href="mailto:sales@testco.co.uk?subject=Web enquiry">Email: sales@testco.co.uk</a></p>
             </div>
         </header>
 
@@ -68,9 +69,9 @@ use  controllers;
                 </div>
                 <div id="info">
                     <h2>Temperature Sensor and Temperature Instrumentation Manufacturer</h2>
-                    <p>Testemp Ltd is a UK based temperature sensor manufacturer and temperature instrumentation
+                    <p>testco Ltd is a UK based temperature sensor manufacturer and temperature instrumentation
                         stockist with over 45 years' experience in supplying to the industry (initially plastics and
-                        rubber moulding). Testemp Ltd also stocks analogue temperature, digital temperature and power
+                        rubber moulding). testco Ltd also stocks analogue temperature, digital temperature and power
                         controllers.<br><br>
 
                         Our focus is on supplying high quality temperature sensors and temperature
@@ -96,10 +97,10 @@ use  controllers;
         </section>
 
         <footer>
-            <a href="https://www.facebook.com/TestempTemperatureSensors/"><i class="fa fa-facebook-official"
+            <a href="https://www.facebook.com/testcoTemperatureSensors/"><i class="fa fa-facebook-official"
                     aria-label="Facebook Page"></i></a>
             <a href="tel:+441903714140"><i class="fa fa-phone-square" aria-label="Phone Number"></i></a>
-            <a href="mailto:sales@testemp.co.uk?subject=Web enquiry"><i class="fa fa-paper-plane"
+            <a href="mailto:sales@testco.co.uk?subject=Web enquiry"><i class="fa fa-paper-plane"
                     aria-label="Email Address"></i></a>
             <p>Registration Number: 866056 • VAT Registration Number: 193-2523-63<br>Student No: 19062354</p>
         </footer>

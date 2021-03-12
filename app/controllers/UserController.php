@@ -13,11 +13,16 @@ class UserController{
     public function AddUser($formreturn){
         $returnUser  = new t\User();
         if($formreturn["firstname"]== null || $formreturn[firstname] ==""){
-            throw new argumentException("{$FirstName} cannot be null or empty");
+            throw new argumentException("first name cannot be null or empty");
+        }
+        if($formreturn["lastname"] == null || $fromreturn["lastname"]==""){
+            throw new argumentException();
         }
         
-        
     }
+
+    public function 
+
 }
 
 
