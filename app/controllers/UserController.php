@@ -21,7 +21,7 @@ class UserController{
         
     }
 
-    public function 
+    public function  
 
 }
 
