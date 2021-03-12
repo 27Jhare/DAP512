@@ -16,8 +16,8 @@
 <?php
 use  controllers as c;
 use index as i;
-$UserConroller = i\$container;
-
+$usersController = i\container["DbUserController"];
+$productsController ;
 ?>
 <body>
     <div class="container">
