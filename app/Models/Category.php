@@ -1,12 +1,11 @@
 <?php
 namespace Tables;
-
-class product{
-
+class Category{
     public int $id;
-    public float $price;
+    public string $name;
     public string $descUrl;
     public string $imgUrl;
-    public string $name;
 }
+
+
 ?>

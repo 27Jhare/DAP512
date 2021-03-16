@@ -14,10 +14,14 @@
 
 </head>
 <?php
-use  controllers as c;
+use  Controllers as c;
 use index as i;
-$usersController = i\container["DbUserController"];
-$productsController ;
+use Models as m;
+use Tables as t;
+$usersController = i::container["DbUserController"];
+$productsController = i::container["DbProductController"];
+
+$Categories= $productsController->getAllCategories();
 ?>
 <body>
     <div class="container">
@@ -39,14 +43,15 @@ $productsController ;
             <section class="mainsection">
                 
                 <div class="maingrid">
-                    <?php foreach ($product as $products => $value):?>
+                    <?php foreach ($categoties as $category):?>
                     
-                    <a href="sensors.html">
+                    <a href=<?php echo "{$category->name}.php" ?>>
                         <i class="fas fa-thermometer-quarter buttcon">
-                            <p>Sensors</p>
+                            <p><?php echo $category->name?></p>
                         </i>
                     </a>
-                    <a href="err404.html">
+                    <?php endforeach;?>
+                    <!-- <a href="err404.html">
                         <i class="fas fa-broadcast-tower buttcon">
                             <p>Thermowells, Fittings and Transmitters</p>
                         </i></a>
@@ -65,7 +70,7 @@ $productsController ;
                     <a href="err404.html">
                         <i class="fas fa-info-circle buttcon">
                             <p>Info</p>
-                        </i></a>
+                        </i></a> -->
                 </div>
                 <div id="info">
                     <h2>Temperature Sensor and Temperature Instrumentation Manufacturer</h2>
