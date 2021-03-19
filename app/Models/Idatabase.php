@@ -1,5 +1,5 @@
 <?php
-//namespace Models;
+ namespace Models;
 interface Idatabase{
     function getItemsInCategory();
     function getAllCategories();

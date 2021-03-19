@@ -18,8 +18,9 @@ use  Controllers as c;
 use index as i;
 use Models as m;
 use Tables as t;
-$usersController = i::container["DbUserController"];
-$productsController = i::container["DbProductController"];
+include("../../indextest.php");
+$usersController = $container["DbUserController"];
+$productsController = $container["DbProductController"];
 
 $Categories= $productsController->getAllCategories();
 ?>

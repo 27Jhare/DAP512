@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 use Models ;
-
+include("IProductController.php");
 
 
 class ProductController implements IProductController{
@@ -12,7 +12,7 @@ class ProductController implements IProductController{
     }
 
     function getAllCategories(){
-        $result = $database->getAllCategories();
+        
 
     }
 }

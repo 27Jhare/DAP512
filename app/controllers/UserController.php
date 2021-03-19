@@ -2,7 +2,7 @@
 namespace Controllers;
 use Models;
 use Tables as t;
-
+Include("IUserController.php");
 class UserController{
 
     public $_database;

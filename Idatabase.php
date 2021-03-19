@@ -1,6 +1,7 @@
 <?php
 //namespace Models;
 interface Idatabase{
+    function Addproduct(product $product);
     function getItemsInCategory();
     function getAllCategories();
     function getProductReviews($product);
