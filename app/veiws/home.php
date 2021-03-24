@@ -22,7 +22,7 @@ include("../../indextest.php");
 $usersController = $container["DbUserController"];
 $productsController = $container["DbProductController"];
 
-$Categories= $productsController->getAllCategories();
+
 ?>
 <body>
     <div class="container">
@@ -44,12 +44,15 @@ $Categories= $productsController->getAllCategories();
             <section class="mainsection">
                 
                 <div class="maingrid">
-                    <?php foreach ($categoties as $category):?>
+                    <?php
+                    $categories= $productsController->getAllCategories();
+                    foreach ($categories as $x => $category):
+                    ?>
                     
-                    <a href=<?php echo "{$category->name}.php" ?>>
+                    <a href=<?php echo "productlist.php?category={$category->id}" ?>>
                         <i class="fas fa-thermometer-quarter buttcon">
                             <p><?php echo $category->name?></p>
-                        </i>
+                        </i> 
                     </a>
                     <?php endforeach;?>
                     <!-- <a href="err404.html">

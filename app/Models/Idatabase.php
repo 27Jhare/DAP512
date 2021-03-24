@@ -1,7 +1,7 @@
 <?php
  namespace Models;
 interface Idatabase{
-    function getItemsInCategory();
+    function getProducts(int $catId);
     function getAllCategories();
     function getProductReviews($product);
     function createNewOrder();
@@ -10,6 +10,7 @@ interface Idatabase{
     function AddItemToOrder($product, $quantity);
     function RemoveItemFromOrder($product,$quantity);
     function AddAddressToOrder();
+    function getCategory($id,$name);
 }
 
 

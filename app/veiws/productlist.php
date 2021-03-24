@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+use index as I;
+use Models as M;
+use Tables as T;
+include("../../indextest.php");
+$productsController = $container["DbProductController"];
+$Get = $_GET;
+$categoryId=$Get["category"];
+$category = $productsController->getCategoryById($categoryId)[0];
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" CONTENT="Sensors: Surface, Bayonet, Plastic, Tubular, Hand Held, Air.">
+    <meta name="Description" CONTENT=<?php echo "{$category->name}: {$productsController->readDescription($category)}"  ?>>
 
-    <title>Sensors | testco Ltd</title>
+    <title><?php echo "{$category->name} | testco Ltd"?></title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -27,37 +36,35 @@
 
         <section class="flextainer">
             <aside>
-                <ul class="menu">
-
-                    <li><a href="index.html">Home</a>
-                        <ul id="drpdn">
-                            <li><a href="sensors.html">Sensors</a></li>
-                            <li><a href="err404.html">Thermowells, Fittings and Transmitters</a></li>
-                            <li><a href="err404.html">Cable</a></li>
-                            <li><a href="err404.html">Instrumentation</a></li>
-                            <li><a href="err404.html">Connectors</a></li>
-                            <li><a href="err404.html">Info</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li><a href="err404.html">About</a></li>
-
-
-                    <li><a href="err404.html">Associates</a></li>
-
-
-                    <li><a href="contact.html">Contact</a></li>
-
-                </ul>
+            <?php include("common/menu.php") ?>
             </aside>
             <section class="mainsection">
                 <div class="maingrid">
-                    <a href="sensors/surface.html" class="buttimg">
-                        <img src="sensors/air.jpg" alt="Surface sensor">
-                        <p>Surface</p>
+                    <?php
+                    $products = $productsController->getAllProductsInCategory($categoryId);
+                    
+                    foreach($products as $x => $product):
+                        $newId =strval($product->id);
+                    ?>
+                      <?php echo "<a href=product.php?id=$newId class='buttimg'>";?> 
+                        <img src="../sensors/air.jpg" alt=<?php echo $product->name?>>
+                        
+                            <p><?php echo "$product->name £{$product->price}";?>
+                        </p>
+                        <div class="description">
+                        <?php 
+                        
+                        echo substr($productsController->readDescription($product),0,50);
+                        echo "...";
+                        
+                        
+                        ?>
+
+                        </div>
                     </a>
-                    <a href="err404.html" class="buttimg">
+                    <?php endforeach ?>
+
+                   <!-- <a href="err404.html" class="buttimg">
                         <img src="sensors/bayonet.jpg" alt="Bayonet sensor">
                         <p>Bayonet</p>
                     </a>
@@ -76,7 +83,7 @@
                     <a href="err404.html" class="buttimg">
                         <img src="sensors/bayonet.jpg" alt="Air sensor">
                         <p>Air</p>
-                    </a>
+                    </a> -->
                 </div>
             </section>
         </section>

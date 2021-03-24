@@ -7,9 +7,14 @@ include("app\Models\Database.php");
 include("app\controllers\ProductController.php");
 include("app\controllers\UserController.php");
 $container = [];
-$container["Database"] = new Models\Database();
-$container["DbUserController"] = new Controllers\UserController($container["Database"]);
-$container["DbProductController"] = new Controllers\ProductController($container["Database"])
+$Database = new Models\Database();
+$DbUserController = new Controllers\UserController($Database);
+$DbProductController= new Controllers\ProductController($Database);
+$container["Database"] = $Database;
+$container["DbUserController"] = $DbUserController;
+$container["DbProductController"] = $DbProductController;
+
+
 
 
 ?>
