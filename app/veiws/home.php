@@ -83,7 +83,7 @@ $productsController = $container["DbProductController"];
                         rubber moulding). testco Ltd also stocks analogue temperature, digital temperature and power
                         controllers.<br><br>
 
-                        Our focus is on supplying high quality temperature sensors and temperature
+                        
                         Our focus is on supplying high quality temperature sensors and temperature
                         instrumentation products for the industrial market. Our current range of units includes
                         thermocouples, platinum resistance, PT100, PT1000, thermistors, thermopockets, thermowells,
