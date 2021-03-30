@@ -26,16 +26,7 @@ $productsController = $container["DbProductController"];
 ?>
 <body>
     <div class="container">
-        <header>
-
-            <h1 id="logo"><a href="index.html">testco Ltd</a></h1>
-
-            <div id="contact">
-                <p><a href="tel:+441903714140">Call: +44 (0) 1903 714140</a>
-                    <br><a href="tel:+441903717435">Fax: +44 (0) 1903 717435</a>
-                    <br><a href="mailto:sales@testco.co.uk?subject=Web enquiry">Email: sales@testco.co.uk</a></p>
-            </div>
-        </header>
+    <?php include "common/header.php"?>
 
         <section class="flextainer">
             <aside>
@@ -55,26 +46,7 @@ $productsController = $container["DbProductController"];
                         </i> 
                     </a>
                     <?php endforeach;?>
-                    <!-- <a href="err404.html">
-                        <i class="fas fa-broadcast-tower buttcon">
-                            <p>Thermowells, Fittings and Transmitters</p>
-                        </i></a>
-                    <a href="err404.html">
-                        <i class="fas fa-plug buttcon">
-                            <p>Cable</p>
-                        </i></a>
-                    <a href="err404.html">
-                        <i class="fas fa-microscope buttcon">
-                            <p>Instrumentation</p>
-                        </i></a>
-                    <a href="err404.html">
-                        <i class="fab fa-usb buttcon">
-                            <p>Connectors</p>
-                        </i></a>
-                    <a href="err404.html">
-                        <i class="fas fa-info-circle buttcon">
-                            <p>Info</p>
-                        </i></a> -->
+      
                 </div>
                 <div id="info">
                     <h2>Temperature Sensor and Temperature Instrumentation Manufacturer</h2>

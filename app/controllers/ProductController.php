@@ -21,7 +21,11 @@ class ProductController implements IProductController{
     }
 
     function getCategoryById($id){
-        return $this->_database->getCategory($id);   
+        return $this->_database->getCategory($id)[0];   
+    }
+
+    function getProductById($id){
+        return $this->_database->getProduct($id)[0];
     }
 
     function readDescription($category){

@@ -8,7 +8,7 @@ include("../../indextest.php");
 $productsController = $container["DbProductController"];
 $Get = $_GET;
 $categoryId=$Get["category"];
-$category = $productsController->getCategoryById($categoryId)[0];
+$category = $productsController->getCategoryById($categoryId);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -25,14 +25,7 @@ $category = $productsController->getCategoryById($categoryId)[0];
 
 <body>
     <div class="container">
-        <header>
-            <h1 id="logo"><a href="index.html">testco Ltd</a></h1>
-            <div id="contact">
-                <p><a href="tel:+441903714140">Call: +44 (0) 1903 714140</a>
-                    <br><a href="tel:+441903717435">Fax: +44 (0) 1903 717435</a>
-                    <br><a href="mailto:sales@testco.co.uk?subject=Web enquiry">Email: sales@testco.co.uk</a></p>
-            </div>
-        </header>
+    <?php include "common/header.php"?>
 
         <section class="flextainer">
             <aside>
@@ -46,7 +39,7 @@ $category = $productsController->getCategoryById($categoryId)[0];
                     foreach($products as $x => $product):
                         $newId =strval($product->id);
                     ?>
-                      <?php echo "<a href=product.php?id=$newId class='buttimg'>";?> 
+                      <?php echo "<a href=productPage.php?id=$newId class='buttimg'>";?> 
                         <img src="../sensors/air.jpg" alt=<?php echo $product->name?>>
                         
                             <p><?php echo "$product->name £{$product->price}";?>

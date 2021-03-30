@@ -12,6 +12,20 @@ header {
     margin: 20px 0 20px 0;
     text-shadow: 3px 3px black;
 }
+#contact a{
+    margin: 3px;
+      float: left;
+      color: black;
+      text-align: center;
+      width: 80%;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      background-color: #8cacd0;
+    }
+    
 
 #logo a{
     text-decoration: none;
@@ -118,6 +132,17 @@ header {
 .buttimg:hover{
     opacity: 70%;
 }
+.fulldescription{
+    display: block;
+    /* background-color:#ddeaee; */
+    width: auto;
+    grid-column: span 2;
+    border: whitesmoke solid 3px;
+    border-radius: 3px;
+    margin:5px;
+    padding:0;
+}
+
 aside {
     background-color: #ddeaee;
     border: 3px solid black;

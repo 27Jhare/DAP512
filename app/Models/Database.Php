@@ -53,6 +53,14 @@ class Database implements Idatabase{
 
     }
 
+    function getProduct($id){
+        $query="select * from product where id=$id limit 1";
+        $stmt = $this->DbConnection->prepare($query);
+        $stmt->execute();       
+        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Product::class);
+        return $returned;
+    }
+
 
     function getProductReviews($product){}
     function createNewOrder(){}

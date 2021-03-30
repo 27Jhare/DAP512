@@ -11,6 +11,7 @@ interface Idatabase{
     function RemoveItemFromOrder($product,$quantity);
     function AddAddressToOrder();
     function getCategory($id,$name);
+    function getProduct($id);
 }
 
 

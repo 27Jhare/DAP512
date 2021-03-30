@@ -7,6 +7,7 @@ interface IProductController{
     function getAllProductsInCategory($catId);
     function getCategoryById($id);
     function readDescription($category);
+    function getProductById($id);
 }
 
 ?>
