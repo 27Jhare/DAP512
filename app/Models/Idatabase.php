@@ -3,6 +3,7 @@
 interface Idatabase{
     function getProducts(int $catId);
     function getAllCategories();
+    function getTopCategories($limit);
     function getProductReviews($product);
     function createNewOrder();
     function CreateUser($user);
@@ -12,6 +13,7 @@ interface Idatabase{
     function AddAddressToOrder();
     function getCategory($id,$name);
     function getProduct($id);
+    function verifyUserNamePassword($username,$password);
 }
 
 

@@ -21,6 +21,14 @@ class UserController{
         
     }
 
+    public function LoginUser($formarray){
+        $returnedusers = $this->_database->verifyUserNamePassword($formarray["username"],$formarray["password"]);
+        if(count($formarray)==1){
+            return $returnedusers[0];
+        }
+        return null;
+       }
+
       
 
 }

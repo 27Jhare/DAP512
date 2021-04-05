@@ -34,7 +34,7 @@ class Database implements Idatabase{
 
 
     function getAllCategories(){ 
-        $query = "select * from producttypes limit 8";
+        $query = "select * from producttypes";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();       
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);     
@@ -60,7 +60,23 @@ class Database implements Idatabase{
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Product::class);
         return $returned;
     }
+    function verifyUserNamePassword($username, $password){
+        $query="select * from user where $username=username AND $Password=password";
+        $stmt = $this->DbConnection->prepare($query);
+        $stmt->execute();       
+        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\User::class);
+        $returned->password= null;
+        return $returned;
+    }
 
+    function getTopCategories($limit){
+
+        //should be a query that look at number of orders
+        $query = "select * from producttypes limit $limit";
+        $stmt = $this->DbConnection->prepare($query);
+        $stmt->execute();       
+        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);  
+    }
 
     function getProductReviews($product){}
     function createNewOrder(){}

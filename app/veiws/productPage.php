@@ -25,7 +25,7 @@ $product = $productsController->getproductById($productId);
 
 <body>
     <div class="container">
-    <?php include "common/header.php"?>
+    <?php include("common/header.php")?>
 
         <section class="flextainer">
             <aside>

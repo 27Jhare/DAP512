@@ -33,13 +33,14 @@ $DbConnection = new PDO("mysql:host=localhost:3306; dbname=uniassignment","root"
 
 $db = new M\Database();
 
-$returned = $db->getProduct(1);
+$returned = $db->getTopCategories(6);
 
 
-echo "<pre>";
+echo "<pre>";   
 print_r($returned);
 echo"</pre>";
-$query = "select * from product where id=1 limit 1";
+$limit=6;
+$query = "select * from producttypes limit $limit";
 $stmt = $DbConnection->prepare($query);
 $stmt->execute();       
 $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);           
@@ -49,4 +50,6 @@ $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);
         print_r($returned);
         echo"</pre>";
 echo gettype("string");
+
+
 ?>

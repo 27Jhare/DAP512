@@ -3,7 +3,7 @@ namespace Controllers;
 use Tables as t;
 interface IProductController{
     
-    function getAllCategories();
+    function getAllCategories($limit);
     function getAllProductsInCategory($catId);
     function getCategoryById($id);
     function readDescription($category);

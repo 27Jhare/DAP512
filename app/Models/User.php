@@ -10,6 +10,7 @@ class User {
     public string $password;
     public date $DateOfBirth;
     public $title;
+    public $permissions;
 
 }
 
