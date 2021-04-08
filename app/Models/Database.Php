@@ -5,6 +5,7 @@ use \PDO;
 include("Idatabase.php");
 include("Category.php");
 include("Product.php");
+include("User.php");
 
 class Database implements Idatabase{
     private PDO $DbConnection;
@@ -61,7 +62,7 @@ class Database implements Idatabase{
         return $returned;
     }
     function verifyUserNamePassword($username, $password){
-        $query="select * from user where $username=username AND $Password=password";
+        $query="select * from user where $username=username AND $password=password";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();       
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\User::class);
@@ -72,10 +73,11 @@ class Database implements Idatabase{
     function getTopCategories($limit){
 
         //should be a query that look at number of orders
-        $query = "select * from producttypes limit $limit";
+        $query = "select * from producttypes limit {$limit}";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();       
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);  
+        return $returned;
     }
 
     function getProductReviews($product){}

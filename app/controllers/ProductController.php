@@ -11,12 +11,16 @@ class ProductController implements IProductController{
             $this->_database = $database;
     }
 
-    function getAllCategories($limit=0){
-        if($limit==0){
-       return $this->_database->getAllCategories();
+    function getAllCategories(?int $limit=0){
+        if($limit>0){
+            
+        $result = $this->_database->getTopCategories($limit);
+      
         }
-        return $this->_database->getTopCategories($limit);
-
+        else{
+        $result = $this->_database->getAllCategories();
+        }
+        return $result;
 
     }
 

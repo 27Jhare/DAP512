@@ -12,17 +12,28 @@ session_start();
 // Check if the user is already logged in
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
     $_SESSION["user"]=null;
-    $_Session["loggedIn"]= false; 
+    $_SESSION["loggedIn"]= false; 
 }
-include("../../indextest.php");
 
+
+echo "<pre>";
+print_r($_POST);
+echo"</pre>";
+
+echo "<pre>";
+print_r($container);
+echo"</pre>";
 $usersController = $container["DbUserController"];
-$authUser = $usersController->LoginUser($_Post);
+$authUser = $usersController->LoginUser($_POST);
+
+echo "<pre>";
+print_r($authUser);
+echo"</pre>";
 if(user != null){
 
-    $_Session["user"]=$authUser;
+    $_SESSION["user"]=$authUser;
     $_SESSION["loggedIn"]= true;
-    header("location: veiws/adminPage.php");
+    //header("location: veiws/adminPage.php");
 }
 
 

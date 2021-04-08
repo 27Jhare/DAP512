@@ -1,5 +1,6 @@
 <?php
 namespace Tables;
+
 class User {
 
     public string $FirstName;

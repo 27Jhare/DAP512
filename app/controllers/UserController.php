@@ -3,11 +3,11 @@ namespace Controllers;
 use Models;
 use Tables as t;
 Include("IUserController.php");
-class UserController{
+class UserController implements IUserController{
 
-    public $_database;
-        function __constructor($database){
-            $_database = $databse;
+    private Models\Idatabase $_database;
+        function __construct($database){
+            $this->_database = $database;
         }
 
     public function AddUser($formreturn){
@@ -22,6 +22,7 @@ class UserController{
     }
 
     public function LoginUser($formarray){
+
         $returnedusers = $this->_database->verifyUserNamePassword($formarray["username"],$formarray["password"]);
         if(count($formarray)==1){
             return $returnedusers[0];

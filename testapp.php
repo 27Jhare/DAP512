@@ -1,9 +1,11 @@
 <?php
 use Tables as T;
 use Models as M;
+use Controllers as C;
 //include("app\Models\Category.php");
 include("app\Models\Database.php");
-$DbConnection = new PDO("mysql:host=localhost:3306; dbname=uniassignment","root");
+include("app\controllers\ProductController.php");
+//$DbConnection = new PDO("mysql:host=localhost:3306; dbname=uniassignment","root");
 // $catId=7;
 // $query = "select product.id, product.name, product.price 
 // from product, producttotype, producttypes where producttotype.typeid = 7 AND producttotype.productid =product.id";
@@ -31,11 +33,9 @@ $DbConnection = new PDO("mysql:host=localhost:3306; dbname=uniassignment","root"
 
 
 
-$db = new M\Database();
+ $db = new M\Database();
 
-$returned = $db->getTopCategories(6);
-
-
+$returned = $db->verifyUserNamePassword("Admin", "1");
 echo "<pre>";   
 print_r($returned);
 echo"</pre>";
@@ -50,6 +50,15 @@ $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);
         print_r($returned);
         echo"</pre>";
 echo gettype("string");
+
+$controller = new  C\ProductController($db);
+
+$top = $controller->getAllCategories(2);
+
+
+echo "<pre>";
+print_r($top);
+echo"</pre>";
 
 
 ?>

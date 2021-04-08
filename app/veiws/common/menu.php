@@ -1,20 +1,21 @@
 <?php
 
-
-
+use index as i;
+$productsMenuController = $container["DbProductController"];
 
 
 ?>
 
 <ul class="menu">
 
-<li><a href="index.html">Home</a>
+<li><a href="home.php">Home</a>
     <ul id="drpdn">
         <?php
-        $categoryList = $productsController->getAllCategories(6);
+        $categoryList = $productsMenuController->getAllCategories(3);
+               
         foreach($categoryList as $x=>$menuCategory):
         ?>
-        <li><a href=<?php echo "productlist.php?=category={$category->id}"?>><?php echo $category->name?></a></li>
+        <li><a href=<?php echo "productlist.php?=category={$menuCategory->id}"?>><?php echo $menuCategory->name?></a></li>
         <?php endforeach;?>
     </ul>
 </li>
