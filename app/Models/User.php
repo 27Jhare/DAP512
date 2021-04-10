@@ -3,15 +3,15 @@ namespace Tables;
 
 class User {
 
-    public string $FirstName;
-    public  string $LastName;
-    public int $Id;
+    public string $firstname;
+    public  string $lastname;
+    public int $id;
     //should be enum
-    public int $gender;
+    public string $gender;
     public string $password;
-    public date $DateOfBirth;
-    public $title;
-    public $permissions;
+    public string $dob;
+    public string $title;
+    public string $level;
 
 }
 

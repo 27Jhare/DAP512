@@ -24,8 +24,10 @@ class UserController implements IUserController{
     public function LoginUser($formarray){
 
         $returnedusers = $this->_database->verifyUserNamePassword($formarray["username"],$formarray["password"]);
-        if(count($formarray)==1){
-            return $returnedusers[0];
+        if(count($returnedusers)==1){
+           $user= $returnedusers[0];
+           $user->password = "";
+            return $user;
         }
         return null;
        }

@@ -62,11 +62,11 @@ class Database implements Idatabase{
         return $returned;
     }
     function verifyUserNamePassword($username, $password){
-        $query="select * from user where $username=username AND $password=password";
+        $query="select * from user where firstname = '$username' AND password = '$password'";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();       
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\User::class);
-        $returned->password= null;
+        
         return $returned;
     }
 

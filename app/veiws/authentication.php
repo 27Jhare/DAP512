@@ -20,19 +20,21 @@ echo "<pre>";
 print_r($_POST);
 echo"</pre>";
 
-echo "<pre>";
-print_r($container);
-echo"</pre>";
 $usersController = $container["DbUserController"];
 $authUser = $usersController->LoginUser($_POST);
 
 echo "<pre>";
 print_r($authUser);
 echo"</pre>";
-if(user != null){
+if($authUser != null){
 
     $_SESSION["user"]=$authUser;
     $_SESSION["loggedIn"]= true;
+    
+    echo "<pre>";
+    print_r($_SESSION);
+    echo"</pre>";
+
     //header("location: veiws/adminPage.php");
 }
 

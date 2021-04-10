@@ -5,7 +5,7 @@ use Controllers as C;
 //include("app\Models\Category.php");
 include("app\Models\Database.php");
 include("app\controllers\ProductController.php");
-//$DbConnection = new PDO("mysql:host=localhost:3306; dbname=uniassignment","root");
+$DbConnection = new PDO("mysql:host=localhost:3306; dbname=uniassignment","root");
 // $catId=7;
 // $query = "select product.id, product.name, product.price 
 // from product, producttotype, producttypes where producttotype.typeid = 7 AND producttotype.productid =product.id";
@@ -40,12 +40,12 @@ echo "<pre>";
 print_r($returned);
 echo"</pre>";
 $limit=6;
-$query = "select * from producttypes limit $limit";
+$username= "Admin";
+$password= "1";
+$query="SELECT * FROM user Where firstname = 'Admin' AND password = '1'";
 $stmt = $DbConnection->prepare($query);
 $stmt->execute();       
-$returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);           
-
-        
+$returned= $stmt->fetchAll();                   
         echo "<pre>";
         print_r($returned);
         echo"</pre>";

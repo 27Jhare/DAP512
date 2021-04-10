@@ -28,7 +28,7 @@ include("../../indextest.php");
             <section class="mainsection">
             <div id="contactgrid">
                 <div class="contactform">
-                <form method ="post" Action="..\controllers\authentication.php">
+                <form method ="post" Action="authentication.php">
                 <input type="text" id="login"  name="username" placeholder="User Name">
                 <input type="password" id="password"  name="password" placeholder="Password">
                 <input type="submit"  value="Log In">
