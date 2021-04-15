@@ -3,7 +3,7 @@ namespace Controllers;
 use Tables as T;
 Use Models as M;
 use index as i;
-include("../../indextest.php");
+include("../../index.php");
 // adapted From https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
 
 // Initialize the session

@@ -4,7 +4,7 @@
 use index as I;
 use Models as M;
 use Tables as T;
-include("../../indextest.php");
+include("../../index.php");
 $productsController = $container["DbProductController"];
 $Get = $_GET;
 $productId=$Get["id"];

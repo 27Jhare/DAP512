@@ -28,17 +28,12 @@ class Database implements Idatabase
             $values = implode(',', $valuesarr);
             $fields = implode(',', array_keys(get_object_vars($product)));
             
-            echo "<pre>";
-            print_r($valuesarr);
-            echo"</pre>";
+
             $this->DbConnection->beginTransaction();
             $productQuery = "INSERT INTO `product` ($fields)  VALUES ($values);";
             $categoryQuery = "INSERT INTO producttotype(`productid`, `typeid`) 
         SELECT product.id, producttypes.id FROM `product`, `producttypes` 
         WHERE product.name = :prodname AND producttypes.id = :catid";
-            echo $productQuery;
-            echo "<br>";
-            echo $categoryQuery;
             $productstmt = $this->DbConnection->prepare($productQuery);
             $linkstmt = $this->DbConnection->prepare($categoryQuery);
             foreach ($valuesarr as $value => $feild) {

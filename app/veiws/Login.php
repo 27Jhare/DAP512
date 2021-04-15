@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 
-include("../../indextest.php");
+include("../../index.php");
 
 ?>
 <head>

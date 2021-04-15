@@ -18,7 +18,7 @@ use  Controllers as c;
 use index as i;
 use Models as m;
 use Tables as t;
-include("../../indextest.php");
+include("../../index.php");
 $usersController = $container["DbUserController"];
 $productsController = $container["DbProductController"];
 ?>

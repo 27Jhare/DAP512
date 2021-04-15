@@ -5,11 +5,12 @@ use index as I;
 use Models as M;
 use Tables as T;
 
-include("../../indextest.php");
+include("../../index.php");
 $productsController = $container["DbProductController"];
 $Get = $_GET;
 $categoryId=$Get["category"];
 $category = $productsController->getCategoryById($categoryId);
+
 ?>
 
 <head>
@@ -39,9 +40,6 @@ $category = $productsController->getCategoryById($categoryId);
                     <?php
                     $products = $productsController->getAllProductsInCategory($categoryId);
                     
-                    echo "<pre>";
-                    print_r($products);
-                    echo"</pre>";
                     foreach ($products as $x => $product):
                         $newId =strval($product->id);
                     ?>
