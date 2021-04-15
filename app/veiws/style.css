@@ -1,9 +1,10 @@
-body{
-    background-color:#ddeaee;
+body {
+    background-color: #ddeaee;
     background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
+
 header {
     display: flex;
     background-color: #42445a;
@@ -12,26 +13,27 @@ header {
     margin: 20px 0 20px 0;
     text-shadow: 3px 3px black;
 }
-#contact a{
-    margin: 3px;
-      float: left;
-      color: black;
-      text-align: center;
-      width: 80%;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      line-height: 25px;
-      border-radius: 4px;
-      background-color: #8cacd0;
-    }
-    
 
-#logo a{
+#contact a {
+    margin: 3px;
+    float: left;
+    color: black;
+    text-align: center;
+    width: 80%;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    background-color: #8cacd0;
+}
+
+#logo a {
     text-decoration: none;
     color: whitesmoke;
 }
-#logo{
+
+#logo {
     text-decoration: none;
     flex: 0 1 1500px;
     padding-left: 20px;
@@ -39,33 +41,41 @@ header {
     font-weight: 500;
     font-size: 56px;
     /*from: https://stackoverflow.com/questions/11839655/is-it-possible-to-adjust-a-fonts-vertical-scaling-using-css*/
-    -webkit-transform: scale(1.25, 1); /* Safari and Chrome */
-    -moz-transform: scale(1.25, 1); /* Firefox */
-    -ms-transform: scale(1.25, 1); /* IE 9+ */
-    -o-transform: scale(1.25, 1); /* Opera */
-    transform-origin: top left; 
+    -webkit-transform: scale(1.25, 1);
+    /* Safari and Chrome */
+    -moz-transform: scale(1.25, 1);
+    /* Firefox */
+    -ms-transform: scale(1.25, 1);
+    /* IE 9+ */
+    -o-transform: scale(1.25, 1);
+    /* Opera */
+    transform-origin: top left;
 }
-#contact{
+
+#contact {
     flex: 0 0 260px;
     line-height: 42px;
 }
-#contact a{
+
+#contact a {
     text-decoration: none;
     color: whitesmoke;
     font-size: 20px;
 }
+
 .mainsection, #err404 {
     background-color: #8cacd0;
     border-radius: 5px;
     flex: 1 3 100%;
-    padding-top:20px;
+    padding-top: 20px;
     height: fit-content;
 }
 
-#info{
-    padding:2rem;
+#info {
+    padding: 2rem;
 }
-.maingrid{
+
+.maingrid {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, minmax(30%, 1fr));
@@ -73,7 +83,7 @@ header {
     justify-items: center;
 }
 
-.buttcon p{
+.buttcon p {
     font-size: 1rem;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
@@ -85,7 +95,7 @@ header {
     border-radius: 0 0 3px 3px;
 }
 
-.buttcon{
+.buttcon {
     font-size: 6rem;
     color: #ddeaee;
     background-color: #42445a;
@@ -96,51 +106,55 @@ header {
     border-radius: 5px;
 }
 
-.buttcon:hover{
+.buttcon:hover {
     opacity: 70%;
 }
-.buttimg p{
+
+.buttimg p {
     font-size: 1rem;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
     color: #ddeaee;
-    background-color: #42445a ;
+    background-color: #42445a;
     height: 1.6875rem;
-    padding-top: 0.6875rem;/*vertical alignment is hard :(*/
+    padding-top: 0.6875rem;
+    /*vertical alignment is hard :(*/
     width: 100%;
     text-align: center;
     vertical-align: middle;
 }
 
-.buttimg{
+.buttimg {
     text-decoration: none;
     display: block;
-    background-color:#ddeaee;
+    background-color: #ddeaee;
     width: 14rem;
     height: 15.375rem;
     border: black solid 3px;
     border-radius: 3px;
-    margin:5px;
-    padding:0;
+    margin: 5px;
+    padding: 0;
 }
-.buttimg img{
+
+.buttimg img {
     margin-bottom: -20px;
     padding: 0;
     width: 160px;
     height: 128px;
 }
-.buttimg:hover{
+
+.buttimg:hover {
     opacity: 70%;
 }
-.fulldescription{
+
+.fulldescription {
     display: block;
-    /* background-color:#ddeaee; */
     width: auto;
     grid-column: span 2;
-    border: whitesmoke solid 3px;
+    border: black solid 3px;
     border-radius: 3px;
-    margin:5px;
-    padding:0;
+    margin: 5px;
+    padding: 0;
 }
 
 aside {
@@ -152,7 +166,8 @@ aside {
     margin-right: 20px;
     flex: 0 1 214px;
 }
-aside ul{
+
+aside ul {
     padding: 0;
     list-style-type: none;
     margin: 0;
@@ -160,29 +175,31 @@ aside ul{
     position: relative;
     flex-direction: column;
 }
-.menu a{
+
+.menu a {
     text-decoration: none;
 }
-.menu a li{
+
+.menu a li {
     padding: 10px;
     color: whitesmoke;
     background-color: lightslategray;
     height: 20px;
 }
 
-#err404 p{
+#err404 p {
     font-size: 2rem;
     padding-left: 2rem;
 }
-#err404 h2{
+
+#err404 h2 {
     font-size: 5rem;
     text-align: center;
 }
 
 /* https://codepen.io/amberweinberg/pen/xVWMxR*/
 
-
-.menu > li > a {
+.menu>li>a {
     display: block;
     padding: 10px 10px;
     text-decoration: none;
@@ -201,27 +218,28 @@ aside ul{
     width: 100%;
     visibility: hidden;
     /* margin-top: -15px; */
-
 }
 
-.menu a:hover{
+.menu a:hover {
     opacity: 50%;
 }
+
 .menu li:hover ul {
     visibility: visible;
     height: 15rem;
     opacity: 1;
     transform: translateY(0);
 }
-.menu li ul li{
+
+.menu li ul li {
     padding: .5rem .1rem;
 }
 
-.menu li ul li:hover{
+.menu li ul li:hover {
     background-color: grey;
 }
 
-#trouble{
+#trouble {
     padding-top: 15px;
     margin-top: -20px;
 }
@@ -233,90 +251,129 @@ aside ul{
     margin: -10px;
 }
 
-.flextainer{
+.flextainer {
     display: flex;
     width: 100%;
 }
+
 .container {
     width: 80%;
     margin: 0 auto;
-}     
+}
+
 .navbar {
     display: none;
 }
-.fullname, .emailaddress, textarea{
+
+.fullname, .emailaddress, textarea {
     font-family: 'Courier New', Courier, monospace;
     width: 50rem;
 }
+
 .fullname {
     margin-left: 3.4rem;
 }
+
 .emailaddress {
     margin-left: 1.25rem;
 }
+
 .query {
     margin-left: 3rem;
 }
 
-.fullname, .emailaddress, .query{
+.fullname, .emailaddress, .query {
     width: 15rem;
     max-width: 70%;
 }
 
-.query{
+.query {
     height: 8rem;
 }
 
-.contactform {
+.adminform {
+    display: block;
+    grid-row: 2;
     padding: 0 2rem;
-    grid-row: 1;
-    grid-column: 1;
+    grid-row: auto;
+    grid-column: auto;
 }
 
-#product{
+/* form style from w3 schools */
+
+input[type=text], select, textarea, input[type=number], [type=password], [type=file]{
+    width: 100%;
+    padding: 12px 2px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+
+input[type=submit], [type=file]{
+    width: 100%;
+    background-color: #42445a;
+    color: white;
+    padding: 14px 2px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type=submit]:hover {
+    background-color: #65677e;
+}
+
+#product {
     display: grid;
     grid-template-columns: repeat(1, minmax(1fr, 1fr));
     width: fit-content;
 }
-#contactgrid{
+
+#contactgrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     grid-template-rows: 2;
 }
 
-#map{
-    grid-row: auto;
-    padding-left: 2rem;
-    padding-bottom: 2rem;
-}
-#prodhead{ 
+#prodhead {
     padding: 0 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: auto;
     width: auto;
 }
-#prodhead h2{
+
+#prodhead h2 {
     font-size: 2rem;
     height: 10px;
 }
-#productimg{
+
+#productimg {
     margin: 2rem 0 0 0;
-    width: 320px; 
+    width: 320px;
     border: solid grey 2px;
 }
 
-#prodhead input{
+#prodhead input {
     margin-right: 2rem;
     width: 4rem;
 }
-#prodhead a:hover{
+
+#prodhead a:hover {
     opacity: 70%;
 }
-#gridimg{
-    display:block;
+
+#gridimg {
+    display: block;
 }
-#gridchoice{
+
+#gridchoice {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: solid 2px black;
@@ -326,7 +383,8 @@ aside ul{
     margin-left: auto;
     margin-right: auto;
 }
-#gridprod{
+
+#gridprod {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
@@ -334,7 +392,8 @@ aside ul{
     /* height: fit-content; */
     max-width: 400px;
 }
-#gridprod div{
+
+#gridprod div {
     min-width: 400px;
     grid-column-start: 1;
     display: grid;
@@ -342,16 +401,17 @@ aside ul{
     justify-items: baseline;
 }
 
-#gridprod label{
-    grid-column-start:1;
-    grid-column-end:2;
-    min-width:9em;
+#gridprod label {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    min-width: 9em;
 }
 
-#gridprod input{
+#gridprod input {
     margin: 0;
 }
-#gridprod a{
+
+#gridprod a {
     grid-column-start: 3;
     grid-column-end: 4;
     text-align: left;
@@ -362,20 +422,24 @@ aside ul{
     white-space: nowrap;
     justify-self: right;
     text-align: center;
-    margin:10px;
+    margin: 10px;
 }
-.opt1{
+
+.opt1 {
     grid-column-start: 2;
 }
-.opt2{
+
+.opt2 {
     grid-column-start: 3;
 }
-.opt1, .opt2{
-    max-width:8em;
+
+.opt1, .opt2 {
+    max-width: 8em;
     min-width: 8em;
     justify-self: end;
 }
-#gridinfo{
+
+#gridinfo {
     padding: 0 1rem;
     margin: 0 2rem 2rem 2rem;
     border: solid grey 2px;
@@ -384,34 +448,38 @@ aside ul{
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
     grid-auto-rows: auto;
 }
-#infotitle{
+
+#infotitle {
     margin: 2.5rem;
 }
-.col1{
-    grid-column: auto;
-}
-.col2{
+
+.col1 {
     grid-column: auto;
 }
 
-.odd{
+.col2 {
+    grid-column: auto;
+}
+
+.odd {
     background-color: lightblue;
 }
-.even{
+
+.even {
     background-color: whitesmoke;
 }
-.odd, .even{
-    padding:8px;
+
+.odd, .even {
+    padding: 8px;
     margin: auto;
 }
 
 footer {
-    background-color:darkgrey;
+    background-color: darkgrey;
     height: fit-content;
     padding: 1rem .1rem;
     margin-top: 1rem;
     border-radius: 5px;
-
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -419,14 +487,14 @@ footer {
     text-align: center;
 }
 
-footer i{
+footer i {
     grid-row: 1;
     font-size: 3rem;
     color: #42445a;
     text-align: center;
 }
 
-footer p{
+footer p {
     /* min-width: 32em; */
     overflow-wrap: break-word;
     grid-row: 2;
@@ -437,99 +505,100 @@ footer p{
     .maingrid {
         grid-template-columns: repeat(2, minmax(40%, 1fr));
     }
-    #prodhead{
+    #prodhead {
         justify-items: center;
         padding: 0rem 2rem;
     }
 }
+
 /* break point 800px or fewer*/
+
 @media only screen and (max-width: 800px) {
-    #productimg{
+    #productimg {
         margin: auto;
         padding: auto;
     }
-    #gridchoice{
+    #gridchoice {
         border: solid 3px black;
         margin: auto;
     }
-    #prodhead{
+    #prodhead {
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
-    #prodhead h2{
+    #prodhead h2 {
         font-size: 25px;
     }
-    .opt1, .opt2{
-        max-width:6em;
+    .opt1, .opt2 {
+        max-width: 6em;
         min-width: 6em;
         justify-self: end;
     }
-    #gridprod label{
-        min-width:8em;
+    #gridprod label {
+        min-width: 8em;
     }
-    #gridprod{
+    #gridprod {
         min-width: 6em;
         padding: 0;
     }
-    #gridprod div{
-        min-width:300px;
+    #gridprod div {
+        min-width: 300px;
     }
-    #gridinfo{
+    #gridinfo {
         padding: 0 .5rem;
         min-width: 310px;
         width: min-content;
         margin: 0 auto 2rem auto;
     }
-    .flextainer{
+    .flextainer {
         flex-direction: column;
     }
-    #drpdn{
+    #drpdn {
         display: none;
     }
-    aside{
+    aside {
         /* border-radius: 0; */
         max-height: 2.45rem;
         margin: 0 0 20px 0;
-        width:100%;
+        width: 100%;
     }
-    .menu{
+    .menu {
         width: 100%;
         display: flex;
         flex-direction: row;
         text-align: center;
     }
-    .menu li{
+    .menu li {
         flex: 1 1 100%;
     }
-    header{
+    header {
         height: 11rem;
         flex-direction: column;
-        align-items:center;
+        align-items: center;
     }
-    #contact{
+    #contact {
         line-height: 1.5em;
         font-size: 20px;
         text-align: center;
         max-height: 6em;
         margin-top: -.5em;
     }
-    .mainsection{
+    .mainsection {
         flex: 1 1 100%;
     }
-
     .maingrid {
         grid-template-columns: repeat(3, minmax(30%, 1fr));
     }
-    .buttcon{
+    .buttcon {
         font-size: 3.5rem;
         width: 8rem;
         height: 7.875rem;
         padding-top: 0.5em;
     }
-    .buttcon p{
+    .buttcon p {
         width: 100%;
         height: 3.25rem;
     }
-    #logo{
+    #logo {
         padding: 25px 0 10px 0;
         margin: 0;
         font-size: 50px;
@@ -539,38 +608,36 @@ footer p{
     .container {
         width: 90%;
     }
-    .contactform{
+    .contactform {
         padding: 1rem;
     }
-
-
-@media only screen and (max-width: 500px) {
-    .container{
-        width:95%;
+    @media only screen and (max-width: 500px) {
+        .container {
+            width: 95%;
+        }
+        #info {
+            padding: 1rem;
+        }
+        aside ul a li {
+            /* font-size: 16px; */
+            padding: 10px 5px 10px 5px;
+        }
+        .fullname, .emailaddress, .query {
+            width: 10rem;
+            max-width: 70%;
+        }
+        .maingrid {
+            grid-template-columns: repeat(2, minmax(30%, 1fr));
+        }
+        .buttcon {
+            font-size: 3.5rem;
+            width: 8rem;
+            height: 7.875rem;
+            padding-top: 0.5em;
+        }
+        .buttcon p {
+            width: 100%;
+            height: 3.25rem;
+        }
     }
-    #info{
-        padding: 1rem;
-    }
-    aside ul a li{
-        /* font-size: 16px; */
-        padding: 10px 5px 10px 5px;                
-    }
-    .fullname, .emailaddress, .query{
-        width: 10rem;
-        max-width: 70%;
-    }
-    .maingrid {
-        grid-template-columns: repeat(2, minmax(30%, 1fr));
-    }
-    .buttcon{
-        font-size: 3.5rem;
-        width: 8rem;
-        height: 7.875rem;
-        padding-top: 0.5em;
-    }
-    .buttcon p{
-        width: 100%;
-        height: 3.25rem;
-    }
-}
 }

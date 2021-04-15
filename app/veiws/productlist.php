@@ -4,16 +4,19 @@
 use index as I;
 use Models as M;
 use Tables as T;
+
 include("../../indextest.php");
 $productsController = $container["DbProductController"];
 $Get = $_GET;
 $categoryId=$Get["category"];
 $category = $productsController->getCategoryById($categoryId);
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" CONTENT=<?php echo "{$category->name}: {$productsController->readDescription($category)}"  ?>>
+    <meta name="Description"
+        CONTENT=<?php echo "{$category->name}: {$productsController->readDescription($category)}"  ?>>
 
     <title><?php echo "{$category->name} | testco Ltd"?></title>
 
@@ -25,39 +28,39 @@ $category = $productsController->getCategoryById($categoryId);
 
 <body>
     <div class="container">
-    <?php include "common/header.php"?>
+        <?php include "common/header.php"?>
 
         <section class="flextainer">
             <aside>
-            <?php include("common/menu.php") ?>
+                <?php include("common/menu.php") ?>
             </aside>
             <section class="mainsection">
                 <div class="maingrid">
                     <?php
                     $products = $productsController->getAllProductsInCategory($categoryId);
                     
-                    foreach($products as $x => $product):
+                    foreach ($products as $x => $product):
                         $newId =strval($product->id);
                     ?>
-                      <?php echo "<a href=productPage.php?id=$newId class='buttimg'>";?> 
-                        <img src="../sensors/air.jpg" alt=<?php echo $product->name?>>
+                    <?php echo "<a href=productPage.php?id=$newId class='buttimg'>";?>
+                    <img src="../sensors/air.jpg" alt=<?php echo $product->name?>>
+
+                    <p><?php echo "$product->name £{$product->price}";?>
+                    </p>
+                    <div class="description">
+                        <?php
                         
-                            <p><?php echo "$product->name £{$product->price}";?>
-                        </p>
-                        <div class="description">
-                        <?php 
-                        
-                        echo substr($productsController->readDescription($product),0,50);
+                        echo substr($productsController->readDescription($product), 0, 50);
                         echo "...";
                         
                         
                         ?>
 
-                        </div>
+                    </div>
                     </a>
                     <?php endforeach ?>
 
-                   <!-- <a href="err404.html" class="buttimg">
+                    <!-- <a href="err404.html" class="buttimg">
                         <img src="sensors/bayonet.jpg" alt="Bayonet sensor">
                         <p>Bayonet</p>
                     </a>

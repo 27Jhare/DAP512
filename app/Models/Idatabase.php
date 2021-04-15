@@ -14,6 +14,8 @@ interface Idatabase{
     function getCategory($id,$name);
     function getProduct($id);
     function verifyUserNamePassword($username,$password);
+    function getTitleEnum();
+    function addProduct($product, $categoryid);
 }
 
 
