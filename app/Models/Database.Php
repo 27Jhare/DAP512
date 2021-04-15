@@ -77,53 +77,88 @@ class Database implements Idatabase
     //get products by category
     public function getProducts($catId)
     {
-        $query = "select product.id,product.name,product.description, product.image,
+        try {
+            $this->DbConnection->beginTransaction();
+            $query = "select product.id,product.name,product.description, product.image,
         product.price from product, producttotype, producttypes where producttotype.typeid = :catid 
         AND producttotype.productid =product.id And producttypes.id = producttotype.typeid";
-        $stmt = $this->DbConnection->prepare($query);
-        $stmt->execute();
-        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Product::class);
-        return $returned;
+            $stmt = $this->DbConnection->prepare($query);
+            $stmt->bindValue(":catid", $catid);
+            $stmt->execute();
+            if ($stmt->rowCount()==0) {
+                $this->DbConnection->rollBack();
+                return "roll back";
+            }
+            $this->DbConnection->commit();
+            $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Product::class);
+            return $returned;
+        } catch (Exception $e) {
+            $this->DbConnection->rollBack();
+            return $e;
+        }
     }
 
 
 
     public function getAllCategories()
     {
+        $this->DbConnection->beginTransaction();
         $query = "select * from producttypes";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
+        
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return "roll back";
+        }
+        $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);
     
-        
         return $returned;
     }
     
     public function getCategory($id=-1, $name="''")
     {
-        //check query with one at work.
+        $this->DbConnection->beginTransaction();
         $query = "select * from producttypes where id=$id or name = $name limit 1";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
+        $stmt->execute();
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return "roll back";
+        }
+        $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);
         return $returned;
     }
 
     public function getProduct($id)
     {
+        $this->DbConnection->beginTransaction();
         $query="select * from product where id=$id limit 1";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return "roll back";
+        }
+        $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Product::class);
         return $returned;
     }
     public function verifyUserNamePassword($username, $password)
     {
+        $this->DbConnection->beginTransaction();
         $query="SELECT * FROM user WHERE firstname = '$username' AND password = '$password'";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return "roll back";
+        }
+        $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\User::class);
-        
         return $returned;
     }
 
@@ -131,9 +166,15 @@ class Database implements Idatabase
     {
 
         //should be a query that look at number of orders
+        $this->DbConnection->beginTransaction();
         $query = "select * from producttypes limit {$limit}";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return "roll back";
+        }
+        $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);
         return $returned;
     }
@@ -142,9 +183,15 @@ class Database implements Idatabase
     public function getTitleEnum()
     {
         //adapted from https://stackoverflow.com/questions/2350052/how-can-i-get-enum-possible-values-in-a-mysql-database
+        $this->DbConnection->beginTransaction();
         $query="SHOW COLUMNS FROM `user` LIKE 'title'";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return "roll back";
+        }
+        $this->DbConnection->commit();
         $returned= $stmt->fetchAll();
         $type = $returned[0]["Type"];
         preg_match('/enum\((.*)\)$/', $type, $matches);
