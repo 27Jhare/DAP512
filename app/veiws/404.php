@@ -1,46 +1,3 @@
-<?php
-   use  Controllers as c;
-   use index as i;
-   use Models as m;
-   use Tables as t;
-
-   include("../../indextest.php");
-   $usersController = $container["DbUserController"];
-   $productsController = $container["DbProductController"];
-   
-   echo "<pre>";
-   print_r($_POST);
-   echo"</pre>";
-   $formoutput = $_POST;
-   $filename = "{$formoutput['name']}";
-   //from https://www.w3schools.com/php/php_file_create.asp
-   $err= array();
-   echo "<pre>";
-   print_r($_FILES);
-   echo"</pre>";
-   $image= $_FILES ;
-   if ($image["image"]["type"]!="image/jpeg" || $image["image"]["type"] != "image/png") {
-       $err['filetype'] = "filetype is not png or jpg";
-   }
-   $object = new T\product();
-   foreach ($formoutput as $key => $value) {
-       $object->$key = strval($value);
-   }
-   echo gettype($object->price);
-   $object->description=$filename.".txt";
-   $object->image=$filename.".png";
-   $returned = $productsController->addProduct($object, $formoutput["category"]);
-
-   
-   echo "<pre>";
-   print_r($returned);
-   echo"</pre>";
-
-
-   echo "<pre>";
-   print_r($object);
-   echo"</pre>";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,23 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" CONTENT="Page not found">
-    <title>Add product <?php echo $object->name?>| testco Ltd</title>
+
+    <title>Error 404 | testco Ltd</title>
+
     <link rel="stylesheet" href="style.css">
+
     <script src="https://kit.fontawesome.com/b12863e982.js" crossorigin="anonymous"></script>
+
 </head>
+<?php
+use  Controllers as c;
+use index as i;
+use Models as m;
+use Tables as t;
+include("../../indextest.php");
+$usersController = $container["DbUserController"];
+$productsController = $container["DbProductController"];
+?>
 
 <body>
     <div class="container">
         <?php include "common/header.php"?>
+
         <section class="flextainer">
             <aside>
                 <?php include "common/menu.php"?>
             </aside>
-            <section class="mainsection">
-                <div class="maingrid">
-                </div>
+            <section id="err404">
+                <h2> ERROR 404</h2>
+                <p>This site is only for display purposes. This page does not exist.<br>Either use the back button on
+                    your browser or click the logo to return to the home page.<br><br>If you find yourself landing on
+                    this page frequently please press the mute button when hovering over the video.</p>
             </section>
         </section>
+
         <footer>
             <a href="https://www.facebook.com/testcoTemperatureSensors/"><i class="fa fa-facebook-official"
                     aria-label="Facebook Page"></i></a>
@@ -75,6 +49,7 @@
         </footer>
     </div>
 </body>
+
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lobster&display=swap" rel="stylesheet">
 
 </html>

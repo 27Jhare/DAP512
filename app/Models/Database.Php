@@ -83,7 +83,7 @@ class Database implements Idatabase
         product.price from product, producttotype, producttypes where producttotype.typeid = :catid 
         AND producttotype.productid =product.id And producttypes.id = producttotype.typeid";
             $stmt = $this->DbConnection->prepare($query);
-            $stmt->bindValue(":catid", $catid);
+            $stmt->bindValue(":catid", $catId);
             $stmt->execute();
             if ($stmt->rowCount()==0) {
                 $this->DbConnection->rollBack();
@@ -117,12 +117,13 @@ class Database implements Idatabase
         return $returned;
     }
     
-    public function getCategory($id=-1, $name="''")
+    public function getCategory($id=-1, $name="")
     {
         $this->DbConnection->beginTransaction();
-        $query = "select * from producttypes where id=$id or name = $name limit 1";
+        $query = "select * from producttypes where id=:id or name=:name limit 1";
         $stmt = $this->DbConnection->prepare($query);
-        $stmt->execute();
+        $stmt->bindValue(":id",$id);
+        $stmt->bindValue(":name", $name);
         $stmt->execute();
         if ($stmt->rowCount()==0) {
             $this->DbConnection->rollBack();
@@ -136,12 +137,13 @@ class Database implements Idatabase
     public function getProduct($id)
     {
         $this->DbConnection->beginTransaction();
-        $query="select * from product where id=$id limit 1";
+        $query="select * from product where id=:id limit 1";
         $stmt = $this->DbConnection->prepare($query);
+        $stmt->bindValue(":id",$id);
         $stmt->execute();
         if ($stmt->rowCount()==0) {
             $this->DbConnection->rollBack();
-            return "roll back";
+            return array("roll back");
         }
         $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Product::class);
@@ -150,8 +152,10 @@ class Database implements Idatabase
     public function verifyUserNamePassword($username, $password)
     {
         $this->DbConnection->beginTransaction();
-        $query="SELECT * FROM user WHERE firstname = '$username' AND password = '$password'";
+        $query="SELECT * FROM user WHERE firstname = :username AND password = :userpassword";
         $stmt = $this->DbConnection->prepare($query);
+        $stmt->bindValue("username",$username);
+        $stmt->bindValue(":userpassword", $password);
         $stmt->execute();
         if ($stmt->rowCount()==0) {
             $this->DbConnection->rollBack();
@@ -167,15 +171,17 @@ class Database implements Idatabase
 
         //should be a query that look at number of orders
         $this->DbConnection->beginTransaction();
-        $query = "select * from producttypes limit {$limit}";
+        $query = "select * from producttypes limit :limitval";
         $stmt = $this->DbConnection->prepare($query);
+        $stmt->bindValue(':limitval', ($limit), PDO::PARAM_INT);
         $stmt->execute();
         if ($stmt->rowCount()==0) {
             $this->DbConnection->rollBack();
             return "roll back";
         }
         $this->DbConnection->commit();
-        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);
+        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\Category::class);#
+        
         return $returned;
     }
 
@@ -196,7 +202,6 @@ class Database implements Idatabase
         $type = $returned[0]["Type"];
         preg_match('/enum\((.*)\)$/', $type, $matches);
         $vals = explode(',', $matches[1]);
-        
         return $vals;
     }
 

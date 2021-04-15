@@ -1,7 +1,7 @@
 <!DOCTYPE Html>
 <header>
 
-<h1 id="logo"><a href="index.html">testco Ltd</a></h1>
+<h1 id="logo"><a href="index.php">testco Ltd</a></h1>
 
 <div id="contact">
     <a class = ".right" href="Login.php">My Account</a>

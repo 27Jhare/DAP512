@@ -39,6 +39,9 @@ $category = $productsController->getCategoryById($categoryId);
                     <?php
                     $products = $productsController->getAllProductsInCategory($categoryId);
                     
+                    echo "<pre>";
+                    print_r($products);
+                    echo"</pre>";
                     foreach ($products as $x => $product):
                         $newId =strval($product->id);
                     ?>
@@ -60,23 +63,23 @@ $category = $productsController->getCategoryById($categoryId);
                     </a>
                     <?php endforeach ?>
 
-                    <!-- <a href="err404.html" class="buttimg">
+                    <!-- <a href="err404.php" class="buttimg">
                         <img src="sensors/bayonet.jpg" alt="Bayonet sensor">
                         <p>Bayonet</p>
                     </a>
-                    <a href="err404.html" class="buttimg">
+                    <a href="err404.php" class="buttimg">
                         <img src="sensors/air.jpg" alt="Plastics sensor">
                         <p>Plastics</p>
                     </a>
-                    <a href="err404.html" class="buttimg">
+                    <a href="err404.php" class="buttimg">
                         <img src="sensors/bayonet.jpg" alt="Tubular sensor">
                         <p>Tubular</p>
                     </a>
-                    <a href="err404.html" class="buttimg">
+                    <a href="err404.php" class="buttimg">
                         <img src="sensors/air.jpg" alt="Hand Held sensor">
                         <p>Hand Held</p>
                     </a>
-                    <a href="err404.html" class="buttimg">
+                    <a href="err404.php" class="buttimg">
                         <img src="sensors/bayonet.jpg" alt="Air sensor">
                         <p>Air</p>
                     </a> -->

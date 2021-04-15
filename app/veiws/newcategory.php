@@ -22,13 +22,14 @@
    if ($image["image"]["type"]!="image/jpeg" || $image["image"]["type"] != "image/png") {
        $err['filetype'] = "filetype is not png or jpg";
    }
-   $object = new T\product();
+   $imagename = $image["image"]["name"];
+   $object = new T\category();
    foreach ($formoutput as $key => $value) {
        $object->$key = strval($value);
    }
    echo gettype($object->price);
    $object->description=$filename.".txt";
-   $object->image=$filename.".png";
+   $object->image=$imagename;
    $returned = $productsController->addProduct($object, $formoutput["category"]);
 
    

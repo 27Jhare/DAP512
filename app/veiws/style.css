@@ -301,7 +301,13 @@ aside ul {
 
 /* form style from w3 schools */
 
-input[type=text], select, textarea, input[type=number], [type=password], [type=file]{
+select,
+textarea,
+input[type=number],
+input[type=text], 
+input[type=password], 
+input[type=file],
+input#contactemail{
     width: 100%;
     padding: 12px 2px;
     margin: 8px 0;
@@ -312,8 +318,7 @@ input[type=text], select, textarea, input[type=number], [type=password], [type=f
     font-size: 1rem;
 }
 
-
-input[type=submit], [type=file]{
+input[type=submit], [type=file] {
     width: 100%;
     background-color: #42445a;
     color: white;

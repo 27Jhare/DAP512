@@ -19,7 +19,7 @@
         </select>
 
         <Label for= "image"> image:</Label>
-        <input type="file" name="image" id="prodImage" accept=".png,.jpg">
+        <input type="file" name="image" id="prodImageUpload" accept=".png,.jpg">
                                                            
         <input type="submit" href="index.html" target="_self">
                             

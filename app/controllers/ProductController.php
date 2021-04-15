@@ -31,7 +31,7 @@ class ProductController implements IProductController
 
     public function getCategoryById($id)
     {
-        return $this->_database->getCategory($id)[0];
+        return $this->_database->getCategory($id);
     }
 
     public function getProductById($id)
