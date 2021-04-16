@@ -1,45 +1,40 @@
 <?php
-   use  Controllers as c;
-   use index as i;
-   use Models as m;
-   use Tables as t;
+use  Controllers as c;
+use index as i;
+use Models as m;
+use Tables as t;
 
-   include("../../index.php");
-   $usersController = $container["DbUserController"];
-   $productsController = $container["DbProductController"];
-   
-   echo "<pre>";
-   print_r($_POST);
-   echo"</pre>";
+include("../../index.php");
+$usersController = $container["DbUserController"];
+$productsController = $container["DbProductController"];
+$cookiename="user";
+if (!isset($_COOKIE[$cookiename])) {
+    header("location: Login.php");
+}
+  if (!isset($_POST)) {
+      header("location: authentication.php");
+  }
    $formoutput = $_POST;
    $filename = "{$formoutput['name']}";
    //from https://www.w3schools.com/php/php_file_create.asp
    $err= array();
-   echo "<pre>";
-   print_r($_FILES);
-   echo"</pre>";
-   $image= $_FILES ;
-   if ($image["image"]["type"]!="image/jpeg" || $image["image"]["type"] != "image/png") {
+
+   $image= $_FILES["image"] ;
+   if ($image["type"]!="image/jpeg" || $image["type"] != "image/png") {
        $err['filetype'] = "filetype is not png or jpg";
    }
    $object = new T\product();
    foreach ($formoutput as $key => $value) {
        $object->$key = strval($value);
    }
-   echo gettype($object->price);
-   $object->description=$filename.".txt";
-   $object->image=$filename.".png";
-   $returned = $productsController->addProduct($object, $formoutput["category"]);
-
    
-   echo "<pre>";
-   print_r($returned);
-   echo"</pre>";
+   $object->description=$filename.".txt";
+   $object->image=$image["name"];
+   $returned = $productsController->addProduct($object, $formoutput["category"]);
+   if ($returned != "error link" || $returned != "error prod") {
+       $productsController->saveDescriptionFile($object->description, $formoutput["description"], "products");
+   }
 
-
-   echo "<pre>";
-   print_r($object);
-   echo"</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +57,17 @@
             </aside>
             <section class="mainsection">
                 <div class="maingrid">
+                    <?php if ($returned == "error link" || $returned == "error prod"):?>
+                    <h2>new product could not be added</h2>
+                    
+                    <?php else:
+                       
+                        $product = $object;
+                        include("common/productpagecontent.php");
+                    endif;
+                    ?>
+                    <h2><a class=".right" href="authentication.php">Return to admin page</a></h2>";
+
                 </div>
             </section>
         </section>

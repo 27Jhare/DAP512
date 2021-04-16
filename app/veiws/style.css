@@ -31,12 +31,16 @@ header {
 #logo a {
     text-decoration: none;
     color: whitesmoke;
+    text-align: center;
 }
 
 #logo {
+    text-align: center;
+    display:block;
     text-decoration: none;
-    flex: 0 1 1500px;
+    flex: 0 1 500px; 
     padding-left: 20px;
+    margin-right: 20px;
     font-family: 'Lobster';
     font-weight: 500;
     font-size: 56px;
@@ -55,6 +59,7 @@ header {
 #contact {
     flex: 0 0 260px;
     line-height: 42px;
+    display: block;
 }
 
 #contact a {
@@ -301,13 +306,7 @@ aside ul {
 
 /* form style from w3 schools */
 
-select,
-textarea,
-input[type=number],
-input[type=text], 
-input[type=password], 
-input[type=file],
-input#contactemail{
+select, textarea, input[type=number], input[type=text], input[type=password], input[type=file], input#contactemail {
     width: 100%;
     padding: 12px 2px;
     margin: 8px 0;

@@ -16,6 +16,7 @@ interface Idatabase{
     function verifyUserNamePassword($username,$password);
     function getTitleEnum();
     function addProduct($product, $categoryid);
+    function getUserfromCookie($id);
 }
 
 

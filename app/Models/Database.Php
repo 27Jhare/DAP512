@@ -23,6 +23,10 @@ class Database implements Idatabase
     }
     public function addProduct($product, $categoryid)
     {
+        
+        echo "<pre>";
+        print_r($product);
+        echo"</pre>";
         try {
             $valuesarr = $this->getArrayForPdoBind($product);
             $values = implode(',', $valuesarr);
@@ -32,8 +36,9 @@ class Database implements Idatabase
             $this->DbConnection->beginTransaction();
             $productQuery = "INSERT INTO `product` ($fields)  VALUES ($values);";
             $categoryQuery = "INSERT INTO producttotype(`productid`, `typeid`) 
-        SELECT product.id, producttypes.id FROM `product`, `producttypes` 
-        WHERE product.name = :prodname AND producttypes.id = :catid";
+                SELECT product.id, producttypes.id FROM `product`, `producttypes` 
+                WHERE product.name = :prodname AND producttypes.id = :catid";
+          
             $productstmt = $this->DbConnection->prepare($productQuery);
             $linkstmt = $this->DbConnection->prepare($categoryQuery);
             foreach ($valuesarr as $value => $feild) {
@@ -44,12 +49,12 @@ class Database implements Idatabase
             $productstmt->execute();
             if ($productstmt->rowCount()==0) {
                 $this->DbConnection->rollBack();
-                return $productstmt;
+                return "error prod";
             };
             $linkstmt->execute();
             if ($linkstmt->rowCount()==0) {
                 $this->DbConnection->rollBack();
-                return $linkstmt;
+                return "error link";
             }
 
             $this->DbConnection->commit();
@@ -98,7 +103,7 @@ class Database implements Idatabase
     public function getAllCategories()
     {
         $this->DbConnection->beginTransaction();
-        $query = "select * from producttypes";
+        $query = "SELECT * FROM producttypes";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->execute();
         
@@ -149,12 +154,26 @@ class Database implements Idatabase
         $this->DbConnection->beginTransaction();
         $query="SELECT * FROM user WHERE firstname = :username AND password = :userpassword";
         $stmt = $this->DbConnection->prepare($query);
-        $stmt->bindValue("username",$username);
+        $stmt->bindValue(":username",$username);
         $stmt->bindValue(":userpassword", $password);
         $stmt->execute();
         if ($stmt->rowCount()==0) {
             $this->DbConnection->rollBack();
-            return "roll back";
+            return array();
+        }
+        $this->DbConnection->commit();
+        $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\User::class);
+        return $returned;
+    }
+    public function getUserfromCookie($id){
+        $this->DbConnection->beginTransaction();
+        $query="SELECT * FROM user WHERE id = :id";
+        $stmt = $this->DbConnection->prepare($query);
+        $stmt->bindValue(":id",$id);
+        $stmt->execute();
+        if ($stmt->rowCount()==0) {
+            $this->DbConnection->rollBack();
+            return array();
         }
         $this->DbConnection->commit();
         $returned= $stmt->fetchAll(PDO::FETCH_CLASS, T\User::class);
@@ -166,7 +185,7 @@ class Database implements Idatabase
 
         //should be a query that look at number of orders
         $this->DbConnection->beginTransaction();
-        $query = "select * from producttypes limit :limitval";
+        $query = "select * from producttypes producttotype where  limit :limitval";
         $stmt = $this->DbConnection->prepare($query);
         $stmt->bindValue(':limitval', ($limit), PDO::PARAM_INT);
         $stmt->execute();
@@ -194,10 +213,7 @@ class Database implements Idatabase
         }
         $this->DbConnection->commit();
         $returned= $stmt->fetchAll();
-        $type = $returned[0]["Type"];
-        preg_match('/enum\((.*)\)$/', $type, $matches);
-        $vals = explode(',', $matches[1]);
-        return $vals;
+        return $returned;
     }
 
 

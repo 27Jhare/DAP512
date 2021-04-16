@@ -1,11 +1,21 @@
 <!DOCTYPE Html>
 <header>
 
-<h1 id="logo"><a href="index.php">testco Ltd</a></h1>
-
 <div id="contact">
-    <a class = ".right" href="Login.php">My Account</a>
+        <a class=".right" href="Login.php">My Account</a>
+        <?php $cookiename="user";
+        
+        if (isset($_COOKIE[$cookiename])&& $_COOKIE[$cookiename] != ""){
+        echo '<a class= ".right" href="logout.php">Logout User</a>';
+        }
+       ?>
+       </div>
+    <h1 id="logo"><a href="index.php">testco Ltd</a></h1>
+
+    <div id="contact">
+
+       </div>
+       
+
     
-    <a class= ".right" href="mailto:sales@testco.co.uk?subject=Web enquiry">Email: sales@testco.co.uk</a>
-</div>
 </header>

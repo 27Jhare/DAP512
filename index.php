@@ -1,7 +1,9 @@
 <?php
 namespace index;
+
 use \Controllers;
 use \Models;
+
 //create a dummy DI container
 include("app\Models\Database.php");
 include("app\controllers\ProductController.php");
@@ -18,8 +20,4 @@ $container["DbProductController"] = $DbProductController;
 
 
 ?>
-
-
-
-
 

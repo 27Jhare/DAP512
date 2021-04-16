@@ -66,8 +66,8 @@ echo"</pre>";
 
 $categoryid = 3;
 $product =new T\Product();
-$product->name ="stringtest";
-$product->price = "1233";
+$product->name ="string test";
+$product->price = "1233.55";
 $product->description = "stringtest.txt";
 $product->image = "stringtest.png";
 function getArrayForPdoBind($object)
@@ -88,9 +88,7 @@ function getArrayForPdoBind($object)
     $categoryQuery = "INSERT INTO producttotype(`productid`, `typeid`) 
         SELECT product.id, producttypes.id FROM `product`, `producttypes` 
         WHERE product.name = :prodname AND producttypes.id = :catid";
-    echo $productQuery;
-    echo "<br>";
-    echo $categoryQuery;
+  
     $productstmt = $DbConnection->prepare($productQuery);
     $linkstmt = $DbConnection->prepare($categoryQuery);
     foreach ($valuesarr as $value => $feild) {

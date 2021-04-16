@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
+$cookiename="user";
 include("../../index.php");
 
+if (isset($_COOKIE[$cookiename])) {
+    header("location: authentication.php");
+}
+  
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +23,7 @@ include("../../index.php");
 
 <body>
     <div class="container">
-    <?php include("common/header.php")?>
+        <?php include("common/header.php")?>
         <section class="flextainer">
             <aside>
                 <?php include("common/menu.php")?>
@@ -26,15 +31,15 @@ include("../../index.php");
 
 
             <section class="mainsection">
-            <div id="contactgrid">
-                <div class="contactform">
-                <form method ="post" Action="authentication.php">
-                <input type="text" id="login"  name="username" placeholder="User Name">
-                <input type="password" id="password"  name="password" placeholder="Password">
-                <input type="submit"  value="Log In">
-                </form> 
+                <div id="contactgrid">
+                    <div class="contactform">
+                        <form method="post" Action="authentication.php">
+                            <input type="text" id="login" name="username" placeholder="User Name">
+                            <input type="password" id="password" name="password" placeholder="Password">
+                            <input type="submit" value="Log In">
+                        </form>
+                    </div>
                 </div>
-            </div>
             </section>
         </section>
 

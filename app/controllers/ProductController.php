@@ -47,17 +47,16 @@ class ProductController implements IProductController
             $categorystring =$category;
         }
         //temporary solution as file names arent set
-        $categorystring = "description.txt";
-        $filename = "../sensors/$categorystring";
+        $filename = "../assets/products/descriptions/$categorystring";
         $myfile = fopen($filename, "r") or die("Unable to open file!");
         $description = fread($myfile, filesize($filename));
         fclose($myfile);
         return $description;
     }
 
-    public function saveDescriptionFile($filename, $description)
+    public function saveDescriptionFile($filename, $description,$prodorcat)
     {
-        $myfile = fopen("..\..\assets\products\descriptions\{$filename}", "w") or die("Unable to create file!");
+        $myfile = fopen("../assets/{$prodorcat}/descriptions/{$filename}", "w") or die("Unable to create file!");
         $txt = $description;
         fwrite($myfile, $txt);
         fclose($myfile);

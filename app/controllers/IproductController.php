@@ -8,7 +8,7 @@ interface IProductController{
     function getCategoryById($id);
     function readDescription($category);
     function getProductById($id);
-    function saveDescriptionFile($filename, $description);
+    function saveDescriptionFile($filename, $description, $prodorcat);
     function addProduct($product,$id);
 }
 

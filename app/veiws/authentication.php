@@ -5,44 +5,41 @@ Use Models as M;
 use index as i;
 include("../../index.php");
 // adapted From https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
-
-// Initialize the session
-session_start();
- 
-// Check if the user is already logged in
-if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
-    $_SESSION["user"]=null;
-    $_SESSION["loggedIn"]= false; 
-}
-
-
-// echo "<pre>";
-// print_r($_POST);
-// echo"</pre>";
-
-$usersController = $container["DbUserController"];
-$authUser = $usersController->LoginUser($_POST);
-
-// echo "<pre>";
-// print_r($authUser);
-// echo"</pre>";
-if($authUser != null){
-
-    $_SESSION["user"]=$authUser;
-    $_SESSION["loggedIn"]= true;
-    
-    // echo "<pre>";
-    // print_r($_SESSION);
-    // echo"</pre>";
-    
-}
-
-else{
-    header("location: Login.php?er=true");
-}
-
+//adapted from https://www.w3schools.com/php/php_cookies.asp
+//check to see if logged in
+$cookiename="user";
 $productsController = $container["DbProductController"];
 $userController = $container["DbUserController"];
+
+
+if (!isset($_COOKIE[$cookiename])) {
+    
+
+
+
+
+    
+    $authUser = $userController->LoginUser($_POST);
+    
+    if ($authUser != null) {
+        
+        
+        setcookie($cookiename, $authUser->id, time() + (86400 * 30), "/"); // 86400 = 1 day
+        } else {
+        header("location: Login.php?er=true");
+    }
+    // page reload to get logout button to apear in header
+    header("location: authentication.php");
+}
+else{
+    $authUser= $_COOKIE[$cookiename];
+    $authUser = $userController->getUserFromCookie($authUser);
+    if($authUser == null){
+        header("location: Login.php?er=true");
+    }
+}
+
+
 $categories= $productsController->getAllCategories();
 $titles = $userController->GetTitles();
 
@@ -64,10 +61,10 @@ $titles = $userController->GetTitles();
 
 <body>
     <div class="container">
-    <?php include ("common/header.php")?>
+        <?php include ("common/header.php")?>
         <section class="flextainer">
             <aside>
-<?php include("common/menu.php") ?>
+                <?php include("common/menu.php") ?>
             </aside>
 
 
@@ -78,20 +75,20 @@ $titles = $userController->GetTitles();
                         include("common/newproductform.php");
                         include("common/newcategoryform.php");
                     }?>
-                
-                        
 
-                <div class="adminform">
-                    <h2>update info</h2>
-                    <form class="inputform" action="edituser.php" method="$post">
-                    <label for="firstname">First Name :</label>
-                    <input value=<?php echo $authUser->lastname?>
-                     id="firstname" type="text" name="firstname" class="admininput"/>
-                    <label for="lastname">Last Name :</label><input value=<?php echo $authUser->lastname?> id="lastname" type="text"
-                                        name="lastname" class="admininput"  />
-                    <Label  for="title">Title:</Label>
-                    <select id= "title" name = "title" class="admininput">      
-                    <?php  foreach($titles as $item){
+
+
+                    <div class="adminform">
+                        <h2>update info</h2>
+                        <form class="inputform" action="edituser.php" method="$post">
+                            <label for="firstname">First Name :</label>
+                            <input value=<?php echo $authUser->lastname?> id="firstname" type="text" name="firstname"
+                                class="admininput" />
+                            <label for="lastname">Last Name :</label><input value=<?php echo $authUser->lastname?>
+                                id="lastname" type="text" name="lastname" class="admininput" />
+                            <Label for="title">Title:</Label>
+                            <select id="title" name="title" class="admininput">
+                                <?php  foreach($titles as $item){
                        $trimmed =trim($item, "'");
                     if($trimmed == $authUser->title){
                         echo"<option selected=$trimmed value= $trimmed>$trimmed</option>\n";
@@ -100,12 +97,12 @@ $titles = $userController->GetTitles();
                       echo "<option value= $trimmed>$trimmed</option>\n";
                     }
                     }?>
-                    </select>
-                    <input type="submit" class="adminsubmit">
-                    </form>
+                            </select>
+                            <input type="submit" class="adminsubmit">
+                        </form>
+                    </div>
                 </div>
-                </div>
-        </section>
+            </section>
         </section>
         <footer>
             <a href="https://www.facebook.com/testcoTemperatureSensors/"><i class="fa fa-facebook-official"

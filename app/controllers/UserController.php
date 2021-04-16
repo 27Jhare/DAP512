@@ -34,9 +34,24 @@ class UserController implements IUserController
         }
         return null;
     }
+    public function getUserFromCookie($id)
+    {
+        $returnedusers=  $this->_database->getUserfromCookie($id);
+        if (count($returnedusers)==1) {
+            $user= $returnedusers[0];
+            $user->password = "";
+            return $user;
+        }
+        return null;
+    }
     
     public function GetTitles()
     {
-        return $this->_database->getTitleEnum();
+        //adapted from https://stackoverflow.com/questions/2350052/how-can-i-get-enum-possible-values-in-a-mysql-database
+        $returned = $this->_database->getTitleEnum();
+        $type = $returned[0]["Type"];
+        preg_match('/enum\((.*)\)$/', $type, $matches);
+        $vals = explode(',', $matches[1]);
+        return $vals;
     }
 }

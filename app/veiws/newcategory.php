@@ -31,7 +31,7 @@
    $object->description=$filename.".txt";
    $object->image=$imagename;
    $returned = $productsController->addProduct($object, $formoutput["category"]);
-
+   $productsController->saveDescriptionFile($object->description, $formoutput["description"],"categories");
    
    echo "<pre>";
    print_r($returned);
